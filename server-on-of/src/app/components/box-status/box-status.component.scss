@@ -5,9 +5,34 @@
   min-height: 200px;
   padding-left: .8rem;
   margin-right: 1rem;
+  ul {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+  }
   li {
+    width: 100%;
     margin-bottom: 1rem;
     font-size: 1rem;
     font-weight: bold;
+    float: left;
+    padding-right: .4rem;
   }
 }
+
+.buttons {
+  float: right;
+}
+
+.button {
+  color: #fff;
+  font-size: .8rem;
+  padding: .3rem;
+  font-weight: bold;
+}
+
+.button-delete {
+  background-color: #f00;
+}
+
+.button-change {}

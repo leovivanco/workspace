@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 ul,
@@ -28,4 +29,17 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 40% 40%;
+}
+
+.button {
+  padding: .5rem;
+  border-radius: .4rem;
+  background: #371bce;
+  font-size: .7rem;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  &:disabled {
+    opacity: 0;
+  }
 }
