@@ -1,0 +1,10 @@
+<h2>{{title}}</h2>
+<div class="box-serve">
+  <ul>
+    <li *ngFor="let service of server; index as i;">
+      {{service}}
+      <button (click)="changeStatus(i, title)" >{{title === "On" ? "Change to Off": "Change to On" }}</button>
+      <button (click)="server.splice(i, 1)" >Delete</button>
+    </li>
+  </ul>
+</div>

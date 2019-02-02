@@ -1,0 +1,16 @@
+<h1>Generator Server!</h1>
+<form (submit)="onSubmit($event)">
+  <div class="row">
+    <input type="text" [(ngModel)]="server.nameService" name="name" placeholder="Enter a server...">
+  </div>
+  <div class="row">
+    <h2>Status of service.</h2>
+    <label>On <input type="radio" required name="name-server" id="name-server" value="on" [(ngModel)]="server.status"></label>
+    <label>Off <input type="radio" required name="name-server" id="name-server" value="off" [(ngModel)]="server.status"></label>
+    <button
+      type="submit"
+      [disabled]="server.nameService === '' || server.status === '' "
+      class="button"
+    >Send</button>
+  </div>
+</form>

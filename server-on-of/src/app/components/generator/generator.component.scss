@@ -1,0 +1,29 @@
+input[type="text"] {
+  padding: 10px;
+  width: 65%;
+}
+
+label {
+  margin-right: 1rem;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.button {
+  padding: 10px;
+  border-radius: .4rem;
+  background: #371bce;
+  font-size: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  &:disabled {
+    opacity: 0;
+  }
+}
+h1{
+  margin-bottom: .6rem;
+}
