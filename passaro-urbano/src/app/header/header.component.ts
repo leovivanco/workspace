@@ -13,14 +13,13 @@ export class HeaderComponent implements OnInit {
   inputSearch: string = '';
   subjectPesquisa: Subject<string> = new Subject<string>();
   ofertas: Observable<Oferta[]>;
-  ofertasTemplate: Oferta[];
 
   constructor(private ofertasService: OfertasService) { }
 
   ngOnInit() {
 
     this.ofertas = this.subjectPesquisa.pipe(
-      debounceTime(1100),
+      debounceTime(900),
       distinctUntilChanged(),
       switchMap((term: string) => {
         if (term.trim() === '') {
@@ -34,13 +33,15 @@ export class HeaderComponent implements OnInit {
         return of<Oferta[]>([])
       })
     )
-    this.ofertas.subscribe((ofertas: Oferta[]) => this.ofertasTemplate = ofertas)
+    //this.ofertas.subscribe((ofertas: Oferta[]) => this.ofertasTemplate = ofertas)
   }
 
-  getSearch(term:string){
+  getSearch(term: string) {
     this.inputSearch = term;
-    console.log(`Termo da busca ${term}`);
     this.subjectPesquisa.next(term);
 
+  }
+  cleanSearch(): void {
+    this.subjectPesquisa.next('');
   }
 }

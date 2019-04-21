@@ -14,8 +14,12 @@
               (keyup)="getSearch(search.value)" />
             <button class="btn btn-primary" [disabled]="!inputSearch" >Procurar</button>
           </div>
-          <ul class="list-group position-absolute">
-            <li class="list-group-item" *ngFor="let oferta of ofertasTemplate">{{oferta.titulo}}</li>
+          <ul class="list-group position-absolute" style="z-index:999">
+            <li class="list-group-item" *ngFor="let oferta of ofertas | async">
+              <a [routerLink]="['/oferta', oferta.id]" (click)="cleanSearch()" >
+                {{oferta.titulo | searchReduce:10}}
+              </a>
+            </li>
           </ul>
 
         </div>

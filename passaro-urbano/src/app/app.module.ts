@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
-
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,10 +9,17 @@ import { HomeComponent } from './home/home.component';
 import { DiversaoComponent } from './diversao/diversao.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { RouterModule } from '@angular/router';
-import {ROUTES} from './routes';
+import { ROUTES } from './routes';
 import { OfertaComponent } from './oferta/oferta.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component'
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
+import { SearchCuts } from './shared/search-strings.pipe';
+import { OrdemDeCompraComponent } from './ordem-de-compra/ordem-de-compra.component';
+
+//Pipe
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -25,7 +31,9 @@ import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component'
     RestaurantesComponent,
     OfertaComponent,
     ComoUsarComponent,
-    OndeFicaComponent
+    OndeFicaComponent,
+    SearchCuts,
+    OrdemDeCompraComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,7 @@ import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component'
     HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

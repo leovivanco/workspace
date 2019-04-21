@@ -17,6 +17,9 @@
         <div class="row">
           <h4>{{oferta.titulo}}</h4>
         </div>
+        <div class="row">
+          <h4>{{dataTest | date:'dd/MM/yyyy' }}</h4>
+        </div>
 
         <div class="row">
           <h5>{{oferta.descricao_oferta}}</h5>
@@ -27,7 +30,7 @@
         </div>
 
         <div class="row">
-          <p>{{oferta.valor}}</p>
+          <p class="preco">{{oferta.valor | currency: 'BRL'}}</p>
         </div>
 
         <div class="row">
