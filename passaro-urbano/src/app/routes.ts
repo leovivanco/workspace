@@ -5,6 +5,7 @@ import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { OfertaComponent } from './oferta/oferta.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
+import { OrdemDeCompraComponent } from './ordem-de-compra/ordem-de-compra.component';
 
 
 export const ROUTES: Routes = [
@@ -12,7 +13,8 @@ export const ROUTES: Routes = [
   { path: 'diversao', component: DiversaoComponent },
   { path: 'restaurantes', component: RestaurantesComponent },
   { path: 'oferta', component: HomeComponent },
-  { path: 'oferta/:id', component: OfertaComponent,
+  {
+    path: 'oferta/:id', component: OfertaComponent,
     children: [
       {
         path: '', component: ComoUsarComponent
@@ -24,5 +26,8 @@ export const ROUTES: Routes = [
         path: 'como-usar', component: ComoUsarComponent
       },
     ]
-  }
+  },
+  {
+    path: 'ordem-de-compra', component: OrdemDeCompraComponent
+  },
 ];
