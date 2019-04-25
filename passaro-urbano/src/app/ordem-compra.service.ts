@@ -1,7 +1,10 @@
+import { Pedido } from "./pedido.model";
+
+
 export class OrdemCompraService {
 
   constructor() { }
-  hello(): void{
-    console.log(`Olá`)
+  confirmarCompra(pedido: Pedido): void{
+    console.log(pedido)
   }
 }

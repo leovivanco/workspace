@@ -23,7 +23,7 @@ export class OrdemDeCompraComponent implements OnInit {
   constructor(private ordemCompraService: OrdemCompraService) { }
 
   ngOnInit() {
-    this.ordemCompraService.hello()
+    //this.ordemCompraService.confirmarCompra()
   }
 
   updateEndereco(value: string) {
