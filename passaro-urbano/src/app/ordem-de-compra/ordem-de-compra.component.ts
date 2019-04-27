@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdemCompraService } from '../ordem-compra.service';
-
+import { Pedido } from '../pedido.model';
 @Component({
   selector: 'app-ordem-de-compra',
   templateUrl: './ordem-de-compra.component.html',
@@ -8,6 +8,7 @@ import { OrdemCompraService } from '../ordem-compra.service';
   providers: [OrdemCompraService]
 })
 export class OrdemDeCompraComponent implements OnInit {
+  //pedido: Pedido = new Pedido('', '', '', '');
   endereco: string = ''
   numero: string = ''
   complemento: string = ''
@@ -60,6 +61,18 @@ export class OrdemDeCompraComponent implements OnInit {
     } else {
       this.opcaoPagamentoIsValid = false;
     }
+
+  }
+
+  confirmarComprar(): void{
+    this.ordemCompraService.confirmarCompra(
+      new Pedido(
+        this.endereco,
+        this.numero,
+        this.complemento ,
+        this.opcaoPagamento,
+      )
+    ).subscribe()
 
   }
 
