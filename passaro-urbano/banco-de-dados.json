@@ -192,6 +192,20 @@
       "complemento": "leo",
       "formaPagamento": "dinheiro",
       "id": 1
+    },
+    {
+      "endereco": "lwldlwdl",
+      "number": "12",
+      "complemento": "lwldlwdl",
+      "formaPagamento": "dinheiro",
+      "id": 2
+    },
+    {
+      "endereco": "leoleo",
+      "number": "10",
+      "complemento": "leoleo",
+      "formaPagamento": "debito",
+      "id": 3
     }
   ]
 }

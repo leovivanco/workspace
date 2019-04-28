@@ -8,7 +8,7 @@ import { Pedido } from '../pedido.model';
   providers: [OrdemCompraService]
 })
 export class OrdemDeCompraComponent implements OnInit {
-  //pedido: Pedido = new Pedido('', '', '', '');
+  idPedido: number;
   endereco: string = ''
   numero: string = ''
   complemento: string = ''
@@ -72,7 +72,9 @@ export class OrdemDeCompraComponent implements OnInit {
         this.complemento ,
         this.opcaoPagamento,
       )
-    ).subscribe()
+    ).subscribe((id:number) => {
+      this.idPedido = id
+    })
 
   }
 

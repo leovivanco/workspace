@@ -17,6 +17,7 @@ import { registerLocaleData } from "@angular/common";
 import localePt from "@angular/common/locales/pt";
 import { SearchCuts } from './shared/search-strings.pipe';
 import { OrdemDeCompraComponent } from './ordem-de-compra/ordem-de-compra.component';
+import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
 
 //Pipe
 registerLocaleData(localePt);
@@ -33,7 +34,8 @@ registerLocaleData(localePt);
     ComoUsarComponent,
     OndeFicaComponent,
     SearchCuts,
-    OrdemDeCompraComponent
+    OrdemDeCompraComponent,
+    OrdemCompraSucessoComponent
   ],
   imports: [
     BrowserModule,
