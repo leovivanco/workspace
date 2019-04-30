@@ -1,6 +1,6 @@
 <div class="container">
   <div class="ordem-compra mb-5" *ngIf="!idPedido">
-    <form #formulario="ngForm" novalidate (ngSubmit)="onSubmit(formulario)">
+    <form [formGroup]="form" (ngSubmit)="confirmarPagamento()">
 
       <!-- <h5>Sua Compra</h5>
       <hr />
@@ -75,7 +75,7 @@
             autocomplete="off"
             minlength="5"
             name="endereco"
-            ngModel
+            formControlName="endereco"
             minlength="4"
             maxlength="200"
             required
@@ -92,7 +92,8 @@
             autocomplete="off"
             minlength="1"
             name="numero"
-            ngModel
+            formControlName="numero"
+
             minlength="1"
             maxlength="20"
             required
@@ -107,7 +108,7 @@
             class="form-control"
             placeholder="Complemento"
             name="complemento"
-            ngModel
+            formControlName="complemento"
             autocomplete="off"
           >
 
@@ -125,7 +126,7 @@
           <select
             class="form-control"
             name="pagamento"
-            ngModel
+            formControlName="pagamento"
           >
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
