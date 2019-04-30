@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { FormsModule } from '@angular/forms'
+
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +18,8 @@ import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component'
 import { registerLocaleData } from "@angular/common";
 import localePt from "@angular/common/locales/pt";
 import { SearchCuts } from './shared/search-strings.pipe';
-import { OrdemDeCompraComponent } from './ordem-de-compra/ordem-de-compra.component';
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
+import { OrdemCompraComponent } from './ordem-de-compra/ordem-de-compra.component';
 
 //Pipe
 registerLocaleData(localePt);
@@ -34,13 +36,14 @@ registerLocaleData(localePt);
     ComoUsarComponent,
     OndeFicaComponent,
     SearchCuts,
-    OrdemDeCompraComponent,
+    OrdemCompraComponent,
     OrdemCompraSucessoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],

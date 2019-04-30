@@ -1,81 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { OrdemCompraService } from '../ordem-compra.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { OrdemCompraService } from '../ordem-compra.service'
 import { Pedido } from '../pedido.model';
+import { NgForm } from '@angular/forms';
+
+
 @Component({
-  selector: 'app-ordem-de-compra',
+  selector: 'app-ordem-compra',
   templateUrl: './ordem-de-compra.component.html',
   styleUrls: ['./ordem-de-compra.component.scss'],
-  providers: [OrdemCompraService]
+  providers: [ OrdemCompraService ]
 })
-export class OrdemDeCompraComponent implements OnInit {
+export class OrdemCompraComponent implements OnInit {
+
+  @ViewChild('formulario') form: NgForm;
   idPedido: number;
-  endereco: string = ''
-  numero: string = ''
-  complemento: string = ''
-  opcaoPagamento: string = ''
-
-  enderecoIsValid: boolean;
-  numeroIsValid: boolean;
-  complementoIsValid: boolean;
-  opcaoPagamentoIsValid: boolean;
-
-
-
   constructor(private ordemCompraService: OrdemCompraService) { }
 
   ngOnInit() {
-    //this.ordemCompraService.confirmarCompra()
-  }
-
-  updateEndereco(value: string) {
-    this.endereco = value;
-    if (this.endereco.length > 3) {
-      this.enderecoIsValid = true
-    }else{
-      this.enderecoIsValid = false;
-    }
-  }
-  updateNumero(value: string): void {
-    this.numero = value;
-    if (this.numero.length > -1) {
-      this.numeroIsValid = true
-    } else {
-      this.numeroIsValid = false
-    }
-
-
-  }
-  updateComplemento(value: string): void {
-    this.complemento = value;
-    if (this.complemento.length > 1) {
-      this.complementoIsValid = true;
-    } else {
-      this.complementoIsValid = false;
-    }
-
-  }
-  updateOpcaoPagamento(value: string): void {
-    this.opcaoPagamento = value;
-    if (this.opcaoPagamento.length > -1 && this.opcaoPagamento !== '') {
-      this.opcaoPagamentoIsValid = true;
-    } else {
-      this.opcaoPagamentoIsValid = false;
-    }
 
   }
 
-  confirmarComprar(): void{
-    this.ordemCompraService.confirmarCompra(
-      new Pedido(
-        this.endereco,
-        this.numero,
-        this.complemento ,
-        this.opcaoPagamento,
-      )
-    ).subscribe((id:number) => {
-      this.idPedido = id
-    })
-
+  onSubmit(): void{
+    let pedido: Pedido = new Pedido(
+      this.form.value.endereco,
+      this.form.value.numero,
+      this.form.value.complemento,
+      this.form.value.pagamento
+    )
+    this.ordemCompraService.confirmarCompra(pedido)
+      .subscribe((idPedido) => this.idPedido = idPedido )
   }
 
 }

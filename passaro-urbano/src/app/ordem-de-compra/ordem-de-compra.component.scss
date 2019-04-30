@@ -1,0 +1,20 @@
+.msg-form {
+  display: none;
+}
+
+select.ng-invalid.ng-touched, input.ng-invalid.ng-touched {
+  &~.text-danger {
+    display: block;
+  }
+
+  border: red 1px solid;
+}
+
+select.ng-valid.ng-touched,
+input.ng-valid.ng-touched {
+  &~.text-success {
+    display: block;
+  }
+
+  border: green 1px solid;
+}
