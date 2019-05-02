@@ -74,7 +74,6 @@
             placeholder="Endereço"
             autocomplete="off"
             minlength="5"
-            name="endereco"
             formControlName="endereco"
             minlength="4"
             maxlength="200"
@@ -91,7 +90,6 @@
             placeholder="Número"
             autocomplete="off"
             minlength="1"
-            name="numero"
             formControlName="numero"
 
             minlength="1"
@@ -139,9 +137,11 @@
       </div>
 
       <hr />
+      <!-- [disabled]="!form.valid" -->
       <button
         type="submit"
         class="btn btn-primary btn-lg"
+
       >Cofirmar compra</button>
     </form>
   </div>
