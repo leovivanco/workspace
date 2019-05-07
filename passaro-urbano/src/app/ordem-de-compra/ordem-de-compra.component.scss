@@ -2,7 +2,8 @@
   display: none;
 }
 
-select.ng-invalid.ng-touched, input.ng-invalid.ng-touched {
+select.ng-invalid.ng-touched,
+input.ng-invalid.ng-touched {
   &~.text-danger {
     display: block;
   }
@@ -17,4 +18,10 @@ input.ng-valid.ng-touched {
   }
 
   border: green 1px solid;
+}
+
+.form-row {
+  background: #FAFAFA;
+  padding: 20px;
+  border-bottom: solid 1px #F0F0F0
 }

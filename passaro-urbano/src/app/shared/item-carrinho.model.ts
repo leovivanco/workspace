@@ -4,7 +4,6 @@ export class ItemCarrinho {
     public categoria: string,
     public titulo: string,
     public descricao_oferta: string,
-    public anunciante: string,
     public valor: number,
     public imagens: object,
     public quantidade: number,

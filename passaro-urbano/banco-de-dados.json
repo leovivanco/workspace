@@ -220,6 +220,13 @@
       "complemento": "dinheiro",
       "formaPagamento": null,
       "id": 5
+    },
+    {
+      "endereco": null,
+      "number": null,
+      "complemento": "dinheiro",
+      "formaPagamento": null,
+      "id": 6
     }
   ]
 }
