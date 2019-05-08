@@ -37,4 +37,15 @@ export class CarrinhoService {
     console.log(this.itens)
 
   }
+  totalCart(){
+    return this.itens.reduce((acc, currentValue) => {
+      return acc + (currentValue.valor * currentValue.quantidade)
+    }, 0)
+  }
+  removeItemCart(item: ItemCarrinho){
+    // this.itens.slice()
+  }
+  cleanCart():void{
+    this.itens = []
+  }
 }

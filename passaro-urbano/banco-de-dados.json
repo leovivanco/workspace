@@ -227,6 +227,119 @@
       "complemento": "dinheiro",
       "formaPagamento": null,
       "id": 6
+    },
+    {
+      "endereco": "Rua josé",
+      "number": "20",
+      "complemento": "dinheiro",
+      "formaPagamento": "Casa",
+      "itensCarrinho": [
+        {
+          "id": 1,
+          "categoria": "restaurante",
+          "titulo": "Super Burger",
+          "descricao_oferta": "Rodízio de Mini-hambúrger com opção de entrada.",
+          "valor": 29.9,
+          "imagens": {
+            "url": "/assets/ofertas/1/img1.jpg"
+          },
+          "quantidade": 2
+        },
+        {
+          "id": 2,
+          "categoria": "restaurante",
+          "titulo": "Cozinha Mexicana",
+          "descricao_oferta": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "imagens": {
+            "url": "/assets/ofertas/2/img1.jpg"
+          },
+          "quantidade": 2
+        }
+      ],
+      "id": 7
+    },
+    {
+      "endereco": "casa",
+      "number": "ca",
+      "complemento": "dinheiro",
+      "formaPagamento": "xac",
+      "itensCarrinho": [
+        {
+          "id": 1,
+          "categoria": "restaurante",
+          "titulo": "Super Burger",
+          "descricao_oferta": "Rodízio de Mini-hambúrger com opção de entrada.",
+          "valor": 29.9,
+          "imagens": {
+            "url": "/assets/ofertas/1/img1.jpg"
+          },
+          "quantidade": 3
+        },
+        {
+          "id": 2,
+          "categoria": "restaurante",
+          "titulo": "Cozinha Mexicana",
+          "descricao_oferta": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "imagens": {
+            "url": "/assets/ofertas/2/img1.jpg"
+          },
+          "quantidade": 4
+        }
+      ],
+      "id": 8
+    },
+    {
+      "endereco": "casa 23",
+      "number": "21",
+      "complemento": "debito",
+      "formaPagamento": "casa",
+      "itensCarrinho": [
+        {
+          "id": 1,
+          "categoria": "restaurante",
+          "titulo": "Super Burger",
+          "descricao_oferta": "Rodízio de Mini-hambúrger com opção de entrada.",
+          "valor": 29.9,
+          "imagens": {
+            "url": "/assets/ofertas/1/img1.jpg"
+          },
+          "quantidade": 3
+        },
+        {
+          "id": 2,
+          "categoria": "restaurante",
+          "titulo": "Cozinha Mexicana",
+          "descricao_oferta": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "imagens": {
+            "url": "/assets/ofertas/2/img1.jpg"
+          },
+          "quantidade": 4
+        }
+      ],
+      "id": 9
+    },
+    {
+      "endereco": "eqweqw",
+      "number": "eqw",
+      "complemento": "dinheiro",
+      "formaPagamento": "eqw",
+      "itensCarrinho": [
+        {
+          "id": 2,
+          "categoria": "restaurante",
+          "titulo": "Cozinha Mexicana",
+          "descricao_oferta": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "imagens": {
+            "url": "/assets/ofertas/2/img1.jpg"
+          },
+          "quantidade": 3
+        }
+      ],
+      "id": 10
     }
   ]
 }

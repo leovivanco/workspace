@@ -1,11 +1,11 @@
 <div class="container">
   <div class="ordem-compra mb-5 mt-5" *ngIf="!idPedido">
-    <form [formGroup]="form" (ngSubmit)="confirmarPagamento()">
 
+    <form *ngIf="itensCarrinho.length > 0; else msgCartEmpty" [formGroup]="form" (ngSubmit)="confirmarPagamento()">
       <h5>Sua Compra</h5>
       <hr />
 
-      <div class="form-row" *ngFor="let item of itensCarrinho">
+      <div class="form-row" *ngFor="let item of itensCarrinho; let i = index">
         <div class="form-group col-sm-1">
           <img [src]="item.imagens.url" class="img-fluid">
         </div>
@@ -18,9 +18,9 @@
         <div>
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-link">-</button>
+              <button type="button" (click)="removeQuantidade(item, index)" class="btn btn-link">-</button>
               {{item.quantidade}}
-              <button type="button" class="btn btn-link">+</button>
+              <button type="button" (click)="addQuantidade(item)" class="btn btn-link">+</button>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
 
       <div class="form-row">
         <div class="form-group col d-flex justify-content-end">
-          <h4>Total do pedido: 61.80</h4>
+          <h4>Total do pedido: {{carrinhoService.totalCart() | currency:'BRL'}}</h4>
         </div>
       </div>
       <br />
@@ -45,47 +45,22 @@
       <div class="form-row">
 
         <div class="form-group col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Endereço"
-            autocomplete="off"
-            minlength="5"
-            formControlName="endereco"
-            minlength="4"
-            maxlength="200"
-            required
-          >
+          <input type="text" class="form-control" placeholder="Endereço" autocomplete="off" minlength="5"
+            formControlName="endereco" minlength="4" maxlength="200" required>
           <small class="msg-form form-text text-success">Ok</small>
           <small class="msg-form form-text text-danger">Endereço invalido</small>
         </div>
 
         <div class="form-group col-md-2">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Número"
-            autocomplete="off"
-            minlength="1"
-            formControlName="numero"
-
-            minlength="1"
-            maxlength="20"
-            required
-          >
+          <input type="text" class="form-control" placeholder="Número" autocomplete="off" minlength="1"
+            formControlName="numero" minlength="1" maxlength="20" required>
           <small class="msg-form form-text text-success">Ok</small>
           <small class="msg-form form-text text-danger">Numero invalido</small>
         </div>
 
         <div class="form-group col-md-4">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Complemento"
-            name="complemento"
-            formControlName="complemento"
-            autocomplete="off"
-          >
+          <input type="text" class="form-control" placeholder="Complemento" name="complemento"
+            formControlName="complemento" autocomplete="off">
 
         </div>
 
@@ -98,11 +73,7 @@
       <div class="form-row">
 
         <div class="form-group col-md-3">
-          <select
-            class="form-control"
-            name="pagamento"
-            formControlName="pagamento"
-          >
+          <select class="form-control" name="pagamento" formControlName="pagamento">
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
@@ -115,12 +86,10 @@
 
       <hr />
       <!-- [disabled]="!form.valid" -->
-      <button
-        type="submit"
-        class="btn btn-primary btn-lg"
-
-      >Cofirmar compra</button>
+      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
     </form>
+          <ng-template #msgCartEmpty>Seu carrinho está vazio.</ng-template>
+
   </div>
   <div class="ordem-compra mb-5" *ngIf="idPedido">
     <app-ordem-compra-sucesso [idPedido]="idPedido"></app-ordem-compra-sucesso>

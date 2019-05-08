@@ -28,11 +28,11 @@ export class OrdemCompraComponent implements OnInit {
     'pagamento': new FormControl(null, [Validators.required])
   })
 
-  ngOnInit(){
+  ngOnInit() {
     this.itensCarrinho = this.carrinhoService.exibiItensCarrrinho();
-    console.log(this.itensCarrinho)
+    //console.log(this.itensCarrinho)
   }
-  confirmarPagamento():void{
+  confirmarPagamento(): void {
     if (this.form.status === "INVALID") {
       this.form.get('endereco').markAsTouched()
       this.form.get('numero').markAsTouched()
@@ -43,13 +43,27 @@ export class OrdemCompraComponent implements OnInit {
       this.form.value.endereco,
       this.form.value.numero,
       this.form.value.pagamento,
-      this.form.value.complemento
+      this.form.value.complemento,
+      this.itensCarrinho
     )
 
     this.ordemCompraService.confirmarCompra(pedido)
-      .subscribe((idPedido: number) => this.idPedido = idPedido)
+      .subscribe((idPedido: number) => {
+        this.idPedido = idPedido
+        this.carrinhoService.cleanCart()
+      })
 
   }
-  getPedidos(){
+  getPedidos() {
+  }
+  addQuantidade(item: ItemCarrinho): void {
+    item.quantidade++
+  }
+  removeQuantidade(item: ItemCarrinho, index: number): void {
+    if (item.quantidade > 1) {
+      item.quantidade -= 1
+    } else {
+      this.carrinhoService.itens.splice(index, 1)
+    }
   }
 }
