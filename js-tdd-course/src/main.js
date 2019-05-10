@@ -5,4 +5,4 @@ function sum(x, y) {
   return x + y;
 }
 
-sum(a, 1);
+sum(a, b);
