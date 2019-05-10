@@ -1,0 +1,14 @@
+{
+  "name": "js-tdd-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tdd"
+  ],
+  "author": "Leonardo Vivanco <leorvivanco@gmail.com> (http://leovivanco.com/)",
+  "license": "MIT"
+}
